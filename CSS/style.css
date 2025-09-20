@@ -1,5 +1,5 @@
 :root{
-    --cor_principal: #94e48d;
+    --cor_principal: #acf0a6;
     --cor_secundaria: #8DE3A4;
     --cor_tercearia: #E5C51B;
     --tamanho_fonte1: 1rem;
@@ -13,16 +13,22 @@ body{
     margin: 0;
 }
 
+/*
+==========================================================================================================
+Header
+==========================================================================================================
+*/
 header{
     background-color: var(--cor_principal);
     display: flex;
     justify-content: space-between;
+    padding-inline: 1%;
 }
 
 .empresa-header{
     display: flex;
-    margin-top: 10px;
-    margin-left: 10px;
+    align-items: center;
+    gap: 2%;
 }
 
 .logo{
@@ -34,6 +40,16 @@ header{
 .learnquest{
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 30px;
-    margin-top: 21px;
+    font-size: 210%;
+}
+
+.navbar{
+    display: flex;
+    gap: 2%;
+    list-style: none;
+    align-items: center;
+}
+
+.navbar li{
+    l
 }
