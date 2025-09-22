@@ -80,3 +80,13 @@ header{
     background-color: var(--cor_tercearia);
 }
 
+.nav .btn-primario{
+    background-color:  var(--cor_tercearia);
+    border-radius: 10px;
+    padding-inline: 6%;
+    padding-block: 4%;
+    font-size: 110%;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s; 
+}
