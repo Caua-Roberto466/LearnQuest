@@ -5,6 +5,7 @@
     --cor_terHover: #b49703;
     --tamanho_fonte1: 1rem;
     --box_shadow: 8px 8px 0px 9px rgba(0, 0, 0, 0.2); 
+    --footer: #303030;
 }
 
 *{
@@ -125,4 +126,24 @@ header{
 
 .navbar .btn-primario:hover{
     background-color: var(--cor_terHover);
+}
+
+/*
+===============================================================================================================
+Footer
+===============================================================================================================
+*/
+footer{
+    background-color: var(--footer);
+    border-top: 1px var(--cor_principal) solid;
+    display: flex;
+    gap: 15%;
+    justify-content: center;
+    margin-top: 33%;
+    margin-bottom: -100px;
+}
+
+.rede-social{
+    display: block;
+    margin: auto;    
 }
