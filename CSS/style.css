@@ -138,7 +138,7 @@ footer{
     background-color: var(--footer);
     border-top: 5px var(--cor_secundaria) solid;
     display: flex;
-    gap: 15%;
+    gap: 7%;
     justify-content: center;
     margin-top: 33%;
     margin-bottom: -100px;
@@ -156,6 +156,7 @@ footer a{
     color: #606060;   
     font-size: 120%; 
     font-weight: bold;
+    white-space: nowrap;
     text-decoration: none;
     transition: 0.5s ease-in-out;
 }
@@ -182,6 +183,43 @@ footer a:hover::after{
     transform: scaleX(1);
 }
 
+footer .p{
+    position: relative;
+    margin-bottom: -2%;
+    color: #606060;   
+    font-size: 120%; 
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.5s ease-in-out;
+}
+
+footer .p::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 3px;
+    background-color: var(--cor_secundaria);
+    border-radius: 999px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: 0.5s ease-in-out;
+}
+
+footer .p:hover{
+    color: var(--cor_secundaria);
+}
+
+footer .p:hover::after{
+    transform: scaleX(1);
+}
+
+#Copy{
+    color: var(--cor_secundaria);
+    text-align: center;
+}
+
 .links{
     display: flex;
     flex-direction: column;
@@ -192,4 +230,28 @@ footer a:hover::after{
     color: var(--cor_secundaria);
     font-size: 135%;
     margin-bottom: 2%;
+}
+
+.diretrizes{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.diretrizes h4{
+    color: var(--cor_secundaria);
+    font-size: 135%;
+    margin-bottom: 2%;
+}
+
+.contatos{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.contatos h4{
+    color: var(--cor_secundaria);
+    font-size: 135%;
+    margin-bottom: -6%;
 }
