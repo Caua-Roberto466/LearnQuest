@@ -1,0 +1,71 @@
+:root{
+    --cor_principal:  #8de3a4;
+    --cor_secundaria: #82be92;
+    --cor_tercearia: #E5C51B;
+    --cor_terHover: #b49703;
+    --tamanho_fonte1: 1rem;
+    --box_shadow: 8px 8px 0px 9px rgba(0, 0, 0, 0.2); 
+    --footer: #303030;
+}
+
+/*
+===============================================================================================================
+Banner
+===============================================================================================================
+*/
+article{
+    background-image: url('../IMG/index/banner-index.png');
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+}
+.nav-banner{
+    display: flex;
+    gap: 18%;
+}
+.links-banner{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 5%;
+}
+.links-banner li{
+    white-space: nowrap;
+}
+.link-banner{
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 130%;
+    display: inline-block;
+    transition: 0.5s ease-in-out;
+}
+.link-banner::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;               /* distância abaixo do texto */
+  width: 100%;
+  height: 5px;                /* 👈 controla a espessura */
+  background-color: var(--cor_tercearia);   /* 👈 cor da linha */
+  border-radius: 999px;
+  transform: scaleX(0);       /* começa invisível */
+  transform-origin: left;     /* começa da esquerda */
+  transition: transform 0.5s ease-in-out;
+}
+.link-banner:hover{
+    color: var(--cor_tercearia);
+}
+.link-banner:hover::after{
+    transform: scaleX(1);
+}
+.btn-banner{
+    display: flex;
+    align-items: center;
+    gap: 20%;
+}
+.btn-banner button{
+    white-space: nowrap;
+}
