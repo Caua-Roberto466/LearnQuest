@@ -17,6 +17,14 @@ body{
     background-color: #f7f7f8;
 }
 
+h1, h2 {
+    font-family: 'Poppins' , sans-serif;
+}
+
+p{
+    font-family: 'Inter' , sans-serif;
+}
+
 /*
 ==========================================================================================================
 Header
