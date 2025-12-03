@@ -6,6 +6,7 @@
     --tamanho_fonte1: 1rem;
     --box_shadow: 8px 8px 0px 9px rgba(0, 0, 0, 0.2); 
     --footer: #303030;
+    --texto: #666666;
 }
 
 *{
@@ -19,7 +20,12 @@ body{
 
 h1, h2 {
     font-family: 'Poppins' , sans-serif;
+    color: var(--texto);
     text-align: center;
+}
+
+h1{
+    font-size: 170%;
 }
 
 p{
