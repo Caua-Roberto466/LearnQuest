@@ -1,8 +1,8 @@
 :root{
     --cor_principal:  #98D8C8;
     --cor_secundaria: #8de3a4;
-    --cor_tercearia: #E5C51B;
-    --cor_terHover: #b49703;
+    --cor_tercearia: #FF9F1C;
+    --cor_terHover: #e08500;
     --tamanho_fonte1: 1rem;
     --box_shadow: 8px 8px 0px 9px rgba(0, 0, 0, 0.2); 
     --footer: #303030;
@@ -14,3 +14,19 @@
 Introdução
 ===============================================================================================================
 */
+
+.introducao{
+    width: 90%;
+    margin: auto;
+    margin-top: 8%;
+    display: flex;
+    gap: 25%;
+}
+#cadastro-intro{
+    border: none;
+    background-color: var(--cor_tercearia);
+    transition: 0.3s ease-in-out;
+}
+.intro-img img{
+    width: 90%;
+}
