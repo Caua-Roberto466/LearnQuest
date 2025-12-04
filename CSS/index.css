@@ -20,13 +20,48 @@ Introdução
     margin: auto;
     margin-top: 8%;
     display: flex;
-    gap: 25%;
+    gap: 20%;
+}
+.intro_texto{
+    width: 120%;
+    font-size: 120%;
 }
 #cadastro-intro{
     border: none;
     background-color: var(--cor_tercearia);
     transition: 0.3s ease-in-out;
+    padding: 2%;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    font-family: 'Inter' , sans-serif;
+    font-size: 110%;
+    transition: 0.3s ease-in-out;
+}
+#cadastro-intro:hover{
+    transform: scale(1.05);
+    background-color: var(--cor_terHover);
+}
+.intro-img{
+    position: relative;
+    display: inline-block;
 }
 .intro-img img{
-    width: 90%;
+    display: block;
+    width: 100%;
+    background-color: var(--cor_principal);
+    padding: 14px;
+    border-radius: 5px;
+}
+.etiqueta{
+    position: absolute;
+    right: -10px;
+    bottom: -10px;
+    width: 190px;
+    background-color: #fff7af;
+    padding: 10px;
+    font-size: 120%;
+    color: var(--texto);
+    font-weight: bold;
+    border-radius: 6px;
 }
