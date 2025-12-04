@@ -45,12 +45,6 @@ header{
     padding-inline: 1%;
 }
 
-.empresa-header{
-    display: flex;
-    align-items: center;
-    gap: 2%;
-}
-
 .logo{
     width: 200px;
     margin-top: -20px;
@@ -65,12 +59,12 @@ header{
 
 .navbar ul{
     display: flex;
-    overflow-x: hidden;
     justify-content: left;
-    gap: 6%;
+    gap: 7%;
     list-style: none;
     align-items: center;
-    flex-wrap: nowrap !important;
+    flex-wrap: nowrap;
+    overflow: visible; /* 👈 libera o ::after */
 }
 
 .navbar li{
@@ -82,7 +76,7 @@ header{
     text-decoration: none;
     color: white;
     font-weight: bold;
-    font-size: 130%;
+    font-size: 120%;
     display: inline-block;
     transition: 0.5s ease-in-out;
 }
@@ -108,40 +102,6 @@ header{
 
 .navbar .nav-link:hover::after{
     transform: scaleX(1);
-}
-
-.btn{
-    background-color: transparent;
-    border: 3px var(--cor_tercearia) solid;
-    border-radius: 10px;
-    padding-inline: 8%;
-    padding-block: 7%;
-    font-size: 110%;
-    color: white;
-    font-weight: bold;
-    transition: 0.5s ease-in-out;
-    cursor: pointer;
-}
-
-.btn:hover{
-    background-color: var(--cor_tercearia);
-}
-
-.btn-primario{
-    background-color:  var(--cor_tercearia);
-    border-radius: 10px;
-    padding-inline: 9%;
-    padding-block: 7%;
-    font-size: 110%;
-    color: white;
-    font-weight: bold;
-    transition: 0.5s ease-in-out; 
-    border: none;
-    cursor: pointer;
-}
-
-.btn-primario:hover{
-    background-color: var(--cor_terHover);
 }
 
 /*
