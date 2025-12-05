@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Estilo de Aprendizagem</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Descubra seu Estilo de Aprendizagem</h1>
+            <p class="subtitle">Este teste ajudará você a identificar se seu estilo de aprendizagem é predominantemente visual, auditivo ou prático.</p>
+        </header>
+
+        <!-- Seção de Introdução -->
+        <section id="intro" class="section intro active">
+            <p>Cada pessoa tem uma maneira preferida de aprender novas informações. Algumas pessoas aprendem melhor vendo (visual), outras ouvindo (auditivo) e outras fazendo (prático/cinestésico).</p>
+            <p>Este teste contém 15 perguntas que ajudarão a identificar seu estilo de aprendizagem predominante. Não existem respostas certas ou erradas - escolha a opção que melhor descreve como você geralmente aprende ou prefere aprender.</p>
+            <p>Ao final do teste, você receberá uma análise detalhada do seu estilo de aprendizagem e dicas para otimizar seus estudos.</p>
+            <button id="start-btn" class="btn btn-primary">Iniciar Teste</button>
+            <a href="index.html"><button id="start-btn" class="btn btn-primary">Voltar ao início</button></a>
+        </section>
+
+        <!-- Seção de Perguntas -->
+        <section id="questions" class="section">
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div id="progress" class="progress"></div>
+                </div>
+            </div>
+            <div id="question-container" class="question-container">
+                <div class="question-number">Pergunta <span id="current-question">1</span> de <span id="total-questions">15</span></div>
+                <div id="question" class="question"></div>
+                <div id="options" class="options"></div>
+            </div>
+            <div class="navigation">
+                <button id="prev-btn" class="btn btn-secondary">Anterior</button>
+                <button id="next-btn" class="btn btn-primary">Próxima</button>
+            </div>
+        </section>
+
+        <!-- Seção de Resultados -->
+        <section id="results" class="section results">
+            <h2 class="result-title">Seu Resultado</h2>
+            <p class="result-description">Com base nas suas respostas, identificamos seu estilo de aprendizagem predominante:</p>
+            <div id="result-type" class="result-type"></div>
+            
+            <div class="score-container">
+                <div class="score-card visual">
+                    <div class="score-title">Visual</div>
+                    <div id="visual-score" class="score-value">0%</div>
+                </div>
+                <div class="score-card auditivo">
+                    <div class="score-title">Auditivo</div>
+                    <div id="auditivo-score" class="score-value">0%</div>
+                </div>
+                <div class="score-card pratico">
+                    <div class="score-title">Prático</div>
+                    <div id="pratico-score" class="score-value">0%</div>
+                </div>
+            </div>
+            
+            <div id="result-details" class="result-details"></div>
+            
+            <div class="action-buttons">
+                <button id="restart-btn" class="btn btn-secondary">Voltar ao Início</button>
+                <button id="trilhas-btn" class="btn btn-primary">Fazer Trilhas</button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elementos da interface
+            const sections = {
+                intro: document.getElementById('intro'),
+                questions: document.getElementById('questions'),
+                results: document.getElementById('results')
+            };
+            
+            const elements = {
+                startBtn: document.getElementById('start-btn'),
+                prevBtn: document.getElementById('prev-btn'),
+                nextBtn: document.getElementById('next-btn'),
+                restartBtn: document.getElementById('restart-btn'),
+                trilhasBtn: document.getElementById('trilhas-btn'),
+                questionContainer: document.getElementById('question-container'),
+                questionElement: document.getElementById('question'),
+                optionsElement: document.getElementById('options'),
+                currentQuestionElement: document.getElementById('current-question'),
+                totalQuestionsElement: document.getElementById('total-questions'),
+                progressElement: document.getElementById('progress'),
+                resultTypeElement: document.getElementById('result-type'),
+                resultDetailsElement: document.getElementById('result-details'),
+                visualScoreElement: document.getElementById('visual-score'),
+                auditivoScoreElement: document.getElementById('auditivo-score'),
+                praticoScoreElement: document.getElementById('pratico-score')
+            };
+            
+            // Perguntas do teste
+            const questions = [
+                {
+                    question: "Quando você está aprendendo algo novo, como prefere receber as instruções?",
+                    options: [
+                        { text: "Ver diagramas, imagens ou demonstrações visuais", type: "visual" },
+                        { text: "Ouvir explicações detalhadas e discutir o assunto", type: "auditivo" },
+                        { text: "Experimentar e praticar por conta própria", type: "pratico" }
+                    ]
+                },
+                {
+                    question: "Ao montar um móvel ou equipamento novo, você geralmente:",
+                    options: [
+                        { text: "Olha as figuras ou assiste a um vídeo tutorial", type: "visual" },
+                        { text: "Lê as instruções em voz alta ou pede para alguém explicar", type: "auditivo" },
+                        { text: "Tenta montar diretamente, aprendendo no processo", type: "pratico" }
+                    ]
+                },
+                {
+                    question: "Quando você está tentando se concentrar, o que mais te distrai?",
+                    options: [
+                        { text: "Desordem visual ou movimento ao seu redor", type: "visual" },
+                        { text: "Ruídos ou pessoas conversando", type: "auditivo" },
+                        { text: "Sensação de desconforto físico ou ficar muito tempo parado", type: "pratico" }
+                    ]
+                },
+                {
+                    question: "Como você prefere estudar para uma prova?",
+                    options: [
+                        { text: "Fazendo mapas mentais, gráficos ou assistindo vídeos", type: "visual" },
+                        { text: "Discutindo o conteúdo com outras pessoas ou gravando e ouvindo suas anotações", type: "auditivo" },
+                        { text: "Criando modelos práticos ou caminhando enquanto revisa o material", type: "pratico" }
+                    ]
+                },
+                {
+                    question: "Quando você está em uma palestra ou aula, como prefere fazer anotações?",
+                    options: [
+                        { text: "Com muitos destaques coloridos, símbolos e diagramas", type: "visual" },
+                        { text: "Escrevendo os pontos principais que ouviu, talvez gravando a aula", type: "auditivo" },
+                        { text: "Fazendo poucas anotações e preferindo participar ativamente", type: "pratico" }
+                    ]
+                },
+                {
+                    question: "Quando você está perdido ou precisa de direções, prefere:",
+                    options: [
+                        { text: "Olhar um mapa ou ver imagens do caminho", type: "visual" },
+                        { text: "Receber instruções verbais detalhadas", type: "auditivo" },
+                        { text: "Usar o GPS e ir descobrindo o caminho na prática", type: "pratico" }
+                    ]
+                },
+                {
+                    question: "Ao aprender uma nova habilidade, como você prefere começar?",
+                    options: [
+                        { text: "Observando alguém demonstrar antes de tentar", type: "visual" },
+                        { text: "Ouvindo uma explicação detalhada do processo", type: "auditivo" },
+                        { text: "Experimentando imediatamente, mesmo que cometa erros", type: "pratico" }
+                    ]
+                },
+                {
+                    question: "Quando você está tentando se lembrar de algo, você geralmente:",
+                    options: [
+                        { text: "Visualiza a informação ou tenta lembrar onde viu", type: "visual" },
+                        { text: "Repete a informação em voz alta ou tenta lembrar o que ouviu", type: "auditivo" },
+                        { text: "Associa a informação com uma sensação ou movimento", type: "pratico" }
+                    ]
+                },
+                {
+                    question: "Qual destas atividades você mais gosta?",
+                    options: [
+                        { text: "Ler um livro ou assistir a um filme", type: "visual" },
+                        { text: "Ouvir música ou participar de uma discussão", type: "auditivo" },
+                        { text: "Praticar esportes ou fazer trabalhos manuais", type: "pratico" }
+                    ]
+                },
+                {
+                    question: "Quando você está explicando algo para alguém, você tende a:",
+                    options: [
+                        { text: "Mostrar imagens ou desenhar diagramas", type: "visual" },
+                        { text: "Explicar verbalmente com muitos detalhes", type: "auditivo" },
+                        { text: "Demonstrar fisicamente como fazer", type: "pratico" }
+                    ]
+                },
+                {
+                    question: "Em uma reunião ou aula, você prefere:",
+                    options: [
+                        { text: "Apresentações com muitos recursos visuais", type: "visual" },
+                        { text: "Discussões em grupo e debates", type: "auditivo" },
+                        { text: "Atividades práticas e simulações", type: "pratico" }
+                    ]
+                },
+                {
+                    question: "Ao aprender um novo idioma, você acha mais fácil:",
+                    options: [
+                        { text: "Ler e escrever palavras e frases", type: "visual" },
+                        { text: "Conversar e ouvir áudios no idioma", type: "auditivo" },
+                        { text: "Usar gestos e praticar em situações reais", type: "pratico" }
+                    ]
+                },
+                {
+                    question: "Quando você está cozinhando uma nova receita, prefere:",
+                    options: [
+                        { text: "Ver fotos do passo a passo ou assistir a um vídeo", type: "visual" },
+                        { text: "Ler a receita em voz alta ou ouvir alguém explicando", type: "auditivo" },
+                        { text: "Experimentar e ajustar os ingredientes conforme o gosto", type: "pratico" }
+                    ]
+                },
+                {
+                    question: "Quando você está escolhendo um produto para comprar, você geralmente:",
+                    options: [
+                        { text: "Se importa muito com a aparência e o design", type: "visual" },
+                        { text: "Conversa com vendedores e pede opiniões", type: "auditivo" },
+                        { text: "Testa o produto e sente como ele funciona", type: "pratico" }
+                    ]
+                },
+                {
+                    question: "Ao tentar se lembrar do nome de alguém, você geralmente:",
+                    options: [
+                        { text: "Tenta visualizar o rosto da pessoa ou onde a conheceu", type: "visual" },
+                        { text: "Tenta lembrar como o nome soava ou de conversas que tiveram", type: "auditivo" },
+                        { text: "Associa a pessoa com uma atividade que fizeram juntos", type: "pratico" }
+                    ]
+                }
+            ];
+            
+            // Descrições dos estilos de aprendizagem
+            const learningStyles = {
+                visual: {
+                    title: "Aprendiz Visual",
+                    description: `
+                        <h3>Como você aprende melhor:</h3>
+                        <p>Você aprende principalmente através do que vê. Imagens, diagramas, vídeos e demonstrações visuais são particularmente eficazes para você. Você tende a criar imagens mentais para lembrar informações e pode se distrair facilmente com desordem visual.</p>
+                        
+                        <h3>Características do aprendiz visual:</h3>
+                        <ul>
+                            <li>Prefere ver informações escritas ou ilustradas</li>
+                            <li>Tem boa memória para rostos e lugares</li>
+                            <li>Geralmente é organizado e gosta de ambientes visualmente agradáveis</li>
+                            <li>Pode ter dificuldade em lembrar instruções verbais longas</li>
+                            <li>Frequentemente visualiza cenários para resolver problemas</li>
+                        </ul>
+                        
+                        <h3>Dicas para otimizar seu aprendizado:</h3>
+                        <ul>
+                            <li>Use mapas mentais, gráficos e diagramas para organizar informações</li>
+                            <li>Destaque textos com cores diferentes para categorizar informações</li>
+                            <li>Assista a vídeos e demonstrações sempre que possível</li>
+                            <li>Sente-se na frente da sala para evitar distrações visuais</li>
+                            <li>Transforme conceitos em representações visuais</li>
+                            <li>Use post-its coloridos para lembretes importantes</li>
+                        </ul>
+                    `
+                },
+                auditivo: {
+                    title: "Aprendiz Auditivo",
+                    description: `
+                        <h3>Como você aprende melhor:</h3>
+                        <p>Você aprende principalmente através do que ouve. Discussões, palestras e explicações verbais são particularmente eficazes para você. Você tende a lembrar o que ouviu e pode se distrair facilmente com ruídos.</p>
+                        
+                        <h3>Características do aprendiz auditivo:</h3>
+                        <ul>
+                            <li>Prefere ouvir informações em vez de lê-las</li>
+                            <li>Tem boa memória para nomes e conversas</li>
+                            <li>Geralmente gosta de música e pode estudar com música de fundo</li>
+                            <li>Frequentemente fala consigo mesmo ou move os lábios ao ler</li>
+                            <li>Aprende bem através de discussões e debates</li>
+                        </ul>
+                        
+                        <h3>Dicas para otimizar seu aprendizado:</h3>
+                        <ul>
+                            <li>Grave aulas e ouça novamente mais tarde</li>
+                            <li>Leia textos em voz alta ou use leitores de texto</li>
+                            <li>Participe de grupos de estudo para discutir o material</li>
+                            <li>Explique conceitos em voz alta, mesmo que seja para si mesmo</li>
+                            <li>Use mnemônicos e rimas para memorizar informações</li>
+                            <li>Evite ambientes barulhentos ao estudar</li>
+                        </ul>
+                    `
+                },
+                pratico: {
+                    title: "Aprendiz Prático (Cinestésico)",
+                    description: `
+                        <h3>Como você aprende melhor:</h3>
+                        <p>Você aprende principalmente através do que faz. Atividades práticas, experimentos e aprendizado baseado em projetos são particularmente eficazes para você. Você tende a lembrar o que experimentou fisicamente e pode se distrair facilmente quando precisa ficar parado por muito tempo.</p>
+                        
+                        <h3>Características do aprendiz prático:</h3>
+                        <ul>
+                            <li>Prefere aprender fazendo em vez de ler ou ouvir sobre o assunto</li>
+                            <li>Tem boa memória para atividades e experiências</li>
+                            <li>Geralmente é energético e prefere estar em movimento</li>
+                            <li>Pode ter dificuldade em se concentrar em leituras longas</li>
+                            <li>Aprecia trabalhos manuais e atividades físicas</li>
+                        </ul>
+                        
+                        <h3>Dicas para otimizar seu aprendizado:</h3>
+                        <ul>
+                            <li>Faça experimentos práticos sempre que possível</li>
+                            <li>Use modelos físicos e objetos para representar conceitos</li>
+                            <li>Estude em pé ou faça pausas frequentes para se movimentar</li>
+                            <li>Utilize gestos ao memorizar informações</li>
+                            <li>Transforme o aprendizado em jogos ou atividades</li>
+                            <li>Faça anotações breves e desenhe enquanto ouve explicações</li>
+                        </ul>
+                    `
+                }
+            };
+            
+            // Variáveis de controle
+            let currentQuestionIndex = 0;
+            let answers = [];
+            
+            // Inicializar o teste
+            elements.totalQuestionsElement.textContent = questions.length;
+            
+            // Event listeners
+            elements.startBtn.addEventListener('click', startTest);
+            elements.prevBtn.addEventListener('click', showPreviousQuestion);
+            elements.nextBtn.addEventListener('click', handleNextButton);
+            elements.restartBtn.addEventListener('click', restartTest);
+            elements.trilhasBtn.addEventListener('click', goToTrilhas);
+            
+            // Funções
+            function startTest() {
+                showSection('questions');
+                showQuestion(0);
+                updateNavButtons();
+            }
+            
+            function showSection(sectionId) {
+                Object.keys(sections).forEach(key => {
+                    sections[key].classList.remove('active');
+                });
+                sections[sectionId].classList.add('active');
+            }
+            
+            function showQuestion(index) {
+                const question = questions[index];
+                elements.questionElement.textContent = question.question;
+                elements.currentQuestionElement.textContent = index + 1;
+                
+                // Atualizar a barra de progresso
+                const progressPercentage = ((index + 1) / questions.length) * 100;
+                elements.progressElement.style.width = `${progressPercentage}%`;
+                
+                // Limpar e criar novas opções
+                elements.optionsElement.innerHTML = '';
+                question.options.forEach((option, optionIndex) => {
+                    const optionElement = document.createElement('div');
+                    optionElement.className = 'option';
+                    optionElement.textContent = option.text;
+                    optionElement.dataset.type = option.type;
+                    optionElement.dataset.index = optionIndex;
+                    
+                    // Verificar se esta opção foi selecionada anteriormente
+                    if (answers[index] !== undefined && answers[index].optionIndex === optionIndex) {
+                        optionElement.classList.add('selected');
+                    }
+                    
+                    optionElement.addEventListener('click', () => selectOption(optionElement, index, optionIndex, option.type));
+                    elements.optionsElement.appendChild(optionElement);
+                });
+                
+                currentQuestionIndex = index;
+            }
+            
+            function selectOption(optionElement, questionIndex, optionIndex, optionType) {
+                // Remover seleção anterior
+                const options = elements.optionsElement.querySelectorAll('.option');
+                options.forEach(opt => opt.classList.remove('selected'));
+                
+                // Adicionar seleção à opção clicada
+                optionElement.classList.add('selected');
+                
+                // Salvar resposta
+                answers[questionIndex] = {
+                    questionIndex,
+                    optionIndex,
+                    type: optionType
+                };
+                
+                // Habilitar o botão de próxima pergunta
+                elements.nextBtn.classList.remove('btn-disabled');
+                elements.nextBtn.disabled = false;
+            }
+            
+            function showPreviousQuestion() {
+                if (currentQuestionIndex > 0) {
+                    showQuestion(currentQuestionIndex - 1);
+                    updateNavButtons();
+                }
+            }
+            
+            function handleNextButton() {
+                // Verificar se a pergunta atual foi respondida
+                if (answers[currentQuestionIndex] === undefined) {
+                    alert('Por favor, selecione uma opção antes de continuar.');
+                    return;
+                }
+                
+                // Verificar se é a última pergunta
+                if (currentQuestionIndex === questions.length - 1) {
+                    calculateResults();
+                    showSection('results');
+                } else {
+                    showQuestion(currentQuestionIndex + 1);
+                    updateNavButtons();
+                }
+            }
+            
+            function updateNavButtons() {
+                // Botão anterior
+                if (currentQuestionIndex === 0) {
+                    elements.prevBtn.classList.add('btn-disabled');
+                    elements.prevBtn.disabled = true;
+                } else {
+                    elements.prevBtn.classList.remove('btn-disabled');
+                    elements.prevBtn.disabled = false;
+                }
+                
+                // Botão próximo
+                if (answers[currentQuestionIndex] === undefined) {
+                    elements.nextBtn.classList.add('btn-disabled');
+                    elements.nextBtn.disabled = true;
+                } else {
+                    elements.nextBtn.classList.remove('btn-disabled');
+                    elements.nextBtn.disabled = false;
+                }
+                
+                // Texto do botão próximo na última pergunta
+                if (currentQuestionIndex === questions.length - 1) {
+                    elements.nextBtn.textContent = 'Ver Resultados';
+                } else {
+                    elements.nextBtn.textContent = 'Próxima';
+                }
+            }
+            
+            function calculateResults() {
+                // Contar respostas por tipo
+                const counts = {
+                    visual: 0,
+                    auditivo: 0,
+                    pratico: 0
+                };
+                
+                answers.forEach(answer => {
+                    counts[answer.type]++;
+                });
+                
+                // Calcular porcentagens
+                const total = answers.length;
+                const percentages = {
+                    visual: Math.round((counts.visual / total) * 100),
+                    auditivo: Math.round((counts.auditivo / total) * 100),
+                    pratico: Math.round((counts.pratico / total) * 100)
+                };
+                
+                // Encontrar o estilo predominante
+                let predominantStyle = 'visual';
+                if (counts.auditivo > counts[predominantStyle]) {
+                    predominantStyle = 'auditivo';
+                }
+                if (counts.pratico > counts[predominantStyle]) {
+                    predominantStyle = 'pratico';
+                }
+                
+                // Atualizar a interface com os resultados
+                elements.resultTypeElement.textContent = learningStyles[predominantStyle].title;
+                elements.resultDetailsElement.innerHTML = learningStyles[predominantStyle].description;
+                
+                // Atualizar as porcentagens
+                elements.visualScoreElement.textContent = `${percentages.visual}%`;
+                elements.auditivoScoreElement.textContent = `${percentages.auditivo}%`;
+                elements.praticoScoreElement.textContent = `${percentages.pratico}%`;
+            }
+            
+            function restartTest() {
+                // Resetar variáveis
+                currentQuestionIndex = 0;
+                answers = [];
+                
+                // Voltar para a introdução
+                showSection('intro');
+                
+            }
+            
+            function goToTrilhas() {
+                // Aqui você pode adicionar o link para a página de trilhas
+                // Por exemplo: window.location.href = 'trilhas.html';
+                alert('Redirecionando para a página de trilhas... ');
+                location.href = 'modulos.html'
+            }
+        });
+    </script>
+</body>
+</html>
