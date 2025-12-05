@@ -111,6 +111,11 @@ Estilo de aprendizado
     width: 30%;
     border: var(--cor_principal) 1px solid;
     border-radius: 10px;
+    transition: 0.3s ease-in-out;
+}
+.card-ea:hover{
+    transform: scale(1.06);
+    box-shadow: 0 0 17px rgba(0, 0, 0, 0.2);
 }
 .card-icon {
   display: inline-flex;
