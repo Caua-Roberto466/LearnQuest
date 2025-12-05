@@ -140,3 +140,36 @@ Estilo de aprendizado
   color: var(--cor_tercearia);
   font-weight: bold;
 }
+
+/*
+===============================================================================================================
+Teste
+===============================================================================================================
+*/
+.teste-aprendizado{
+    background-color: var(--cor_principal);
+    width: 60%;
+    margin: auto;
+    margin-top: 8%;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+.teste-aprendizado button{
+    background-color: var(--cor_tercearia);
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    transition: 0.4s ease-in-out;
+}
+.teste-aprendizado button a{
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: 'Inter' , sans-serif;
+    font-size: 130%;
+}
+.teste-aprendizado button:hover{
+    transform: scale(1.04);
+    background-color: var(--cor_terHover);
+}
