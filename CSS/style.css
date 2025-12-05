@@ -7,6 +7,8 @@
     --box_shadow: 8px 8px 0px 9px rgba(0, 0, 0, 0.2); 
     --footer: #303030;
     --texto: #666666;
+
+    --mint-green-light: rgba(152, 216, 200, 0.2);
 }
 
 *{
@@ -15,10 +17,10 @@
 body{
     margin: 0;
     font-family: sans-serif;
-    background-color: #f7f7f8;
+    background-color: rgb(250, 249, 249);
 }
 
-h1, h2 {
+h1, h2, h3, h4 {
     font-family: 'Poppins' , sans-serif;
     color: var(--texto);
     text-align: center;
@@ -28,8 +30,13 @@ h1{
     font-size: 170%;
 }
 
+.titulo{
+    font-size: 200%;
+}
+
 p{
     font-family: 'Inter' , sans-serif;
+    color: var(--texto);
 }
 
 /*

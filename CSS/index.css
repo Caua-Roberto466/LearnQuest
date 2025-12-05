@@ -7,6 +7,8 @@
     --box_shadow: 8px 8px 0px 9px rgba(0, 0, 0, 0.2); 
     --footer: #303030;
     --texto: #666666;
+
+    --mint-green-light: rgba(152, 216, 200, 0.2);
 }
 
 /*
@@ -20,10 +22,10 @@ Introdução
     margin: auto;
     margin-top: 8%;
     display: flex;
-    gap: 20%;
+    gap: 10%;
 }
 .intro_texto{
-    width: 120%;
+    width: 200%;
     font-size: 120%;
 }
 #cadastro-intro{
@@ -48,15 +50,15 @@ Introdução
 }
 .intro-img img{
     display: block;
-    width: 100%;
+    width: 110%;
     background-color: var(--cor_principal);
     padding: 14px;
     border-radius: 5px;
 }
 .etiqueta{
     position: absolute;
-    right: -10px;
-    bottom: -10px;
+    right: -50px;
+    bottom: -20px;
     width: 190px;
     background-color: #fff7af;
     padding: 10px;
@@ -64,4 +66,72 @@ Introdução
     color: var(--texto);
     font-weight: bold;
     border-radius: 6px;
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.2);
+}
+
+/*
+===============================================================================================================
+Estilo de aprendizado
+===============================================================================================================
+*/
+.estilo-aprendizado{
+    margin-top: 10%;
+}
+.intro-ea{
+    text-align: center;
+    font-size: 120%;
+    width: 60%;
+    margin: auto;
+}
+.container-ea{
+    display: flex;
+    justify-content: center;
+    gap: 3%;
+    margin-top: 3%;
+}
+.titulo-ea{
+    text-align: center;
+    background-color: var(--mint-green-light);
+    padding-bottom: 1%;
+}
+.titulo-ea h2{
+    background-color: #98D8C8;
+    width: 90%;
+    margin: auto;
+    margin-bottom: -10px;
+    padding: 3%;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+.titulo-ea p{
+    font-size: 100%;
+    text-align: center;
+}
+.card-ea{
+    width: 30%;
+    border: var(--cor_principal) 1px solid;
+    border-radius: 10px;
+}
+.card-icon {
+  display: inline-flex;
+  color: var(--cor_principal);
+  margin-bottom: 3%;
+}
+.lista-ea{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-left: -6%;
+}
+.item-ea{
+    color: var(--texto);
+    font-family: 'Inter' , sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.feature-icon {
+  color: var(--cor_tercearia);
+  font-weight: bold;
 }
