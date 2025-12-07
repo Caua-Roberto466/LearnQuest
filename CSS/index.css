@@ -173,3 +173,31 @@ Teste
     transform: scale(1.04);
     background-color: var(--cor_terHover);
 }
+
+/*
+===============================================================================================================
+Tabs estilo de aprendizado
+===============================================================================================================
+*/
+.tipos-aprendizado{
+    width: 70%;
+    margin: auto;
+    margin-top: 8%;
+}
+.tab-botao{
+    margin: -2px;
+    width: 33%;
+    border: none;
+    background-color: transparent;
+    padding-block: 1.5%;
+    font-size: 110%;
+    font-weight: bold;
+    font-family: 'Inter' , sans-serif;
+    color: var(--texto);
+    cursor: pointer;
+    border-bottom: 1px solid #a7a7a794
+}
+.tab-botao.ativo{
+    background-color: var(--mint-green-light);
+    border-bottom: 3px solid var(--cor_principal);
+}
