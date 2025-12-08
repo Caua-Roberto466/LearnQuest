@@ -208,7 +208,10 @@ Tabs estilo de aprendizado
     padding: 3%;
     background-color: white;
     border-radius: 15px;
-    
+    display: none;
+}
+.tab-conteudo.ativo{
+    display: block;
 }
 .tab-conteudo h3{
     background-color: var(--cor_principal);
@@ -226,7 +229,9 @@ Tabs estilo de aprendizado
     border: 1px solid #7775;
     border-radius: 10px;
     position: relative;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     overflow: visible;
     transition: 0.4s ease-in-out;
 }
@@ -277,6 +282,7 @@ Tabs estilo de aprendizado
     font-size: 120%;
     padding: 8px 15px;
     border-radius: 7px;
+    margin-top: 4%;
     margin: 10px 10px;
     transition: 0.5s ease-in-out;
 }
