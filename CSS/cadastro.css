@@ -1,0 +1,30 @@
+:root{
+    --cor_principal:  #98D8C8;
+    --cor_secundaria: #8de3a4;
+    --cor_tercearia: #FF9F1C;
+    --cor_terHover: #e08500;
+    --tamanho_fonte1: 1rem;
+    --box_shadow: 8px 8px 0px 9px rgba(0, 0, 0, 0.2); 
+    --footer: #303030;
+    --texto: #666666;
+
+    --mint-green-light: rgba(152, 216, 200, 0.2);
+}
+/*
+===============================================================================================================
+Formulário
+===============================================================================================================
+*/
+form{
+    width: 50%;
+    border-radius: 15px;
+    margin: auto;
+    border: 1px solid #7777;
+}
+form h3{
+    margin: 0;
+    background-color: var(--cor_principal);
+    padding-block: 1.5%;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
