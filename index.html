@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="IMG/Logo-learnQuest.png" type="image/x-icon">
     <title>LearnQuest</title>
 </head>
 <body>
@@ -29,11 +30,11 @@
     </header>
 
     <section class="introducao">
-        <div class="intro_texto">
+        <article class="intro_texto">
             <h1>Aprenda do seu jeito no seu ritmo</h1>
             <p>Com a LearnQuest você recebe o melhor aprendizado, que se adequa ao seu estilo de estudo, seja auditivo, visual ou prático. Tudo em qualquer dispositivo</p>
             <button id="cadastro-intro">Crie sua conta</button>
-        </div>
+        </article>
         <div class="intro-img">
             <img src="IMG/index/mulher-usando-site.jpg" alt="uma mulher utilizando nosso site">
             <div class="etiqueta">+10.000 usuários usam nosso site</div>
@@ -156,7 +157,7 @@
             <h3>Trilha para aprendizes visuais</h3>
 
             <div class="cards">
-                <div class="card">
+                <article class="card">
                     <div>
                         <div class="img-div">
                             <img src="IMG/index/matematica-mapas.png" alt="mapas mentais de matemática">
@@ -168,8 +169,8 @@
                         </p>
                     </div>
                     <a href="HTML/cadastro.html"><button class="card-botao">Ver aulas</button></a>
-                </div>
-                <div class="card">
+                </article>
+                <article class="card">
                     <div>
                         <div class="img-div">
                             <img src="IMG/index/historia em infografico.png" alt="Infográfico de história">
@@ -181,14 +182,14 @@
                         </p>
                     </div>
                     <a href="HTML/cadastro.html"><button class="card-botao">Ver Aulas</button></a>
-                </div>
+                </article>
             </div>
         </div>
         <div class="tab-conteudo" id="auditivo">
             <h3>Trilha para aprendizes auditivos</h3>
 
             <div class="cards">
-                <div class="card">
+                <article class="card">
                     <div>
                         <div class="img-div">
                             <img src="IMG/index/debate de portugues educacional.png" alt="debates de português">
@@ -200,8 +201,8 @@
                         </p>
                     </div>
                     <a href="HTML/cadastro.html"><button class="card-botao">Ver aulas</button></a>
-                </div>
-                <div class="card">
+                </article>
+                <article class="card">
                     <div>
                         <div class="img-div">
                             <img src="IMG/index/podcast-ciencias.png" alt="Podcast de ciências">
@@ -213,7 +214,7 @@
                         </p>
                     </div>
                     <a href="HTML/cadastro.html"><button class="card-botao">Ver aulas</button></a>
-                </div>
+                </article>
             </div>
         </div>
 
@@ -221,7 +222,7 @@
             <h3>Trilha para aprendizes práticos</h3>
 
             <div class="cards">
-                <div class="card">
+                <article class="card">
                     <div>
                         <div class="img-div">
                             <img src="IMG/index/experimento de fisica.png" alt="Exprerimento de física">
@@ -233,8 +234,8 @@
                         </p>
                     </div>
                     <a href="HTML/cadastro.html"><button class="card-botao">Ver aulas</button></a>
-                </div>
-                <div class="card">
+                </article>
+                <article class="card">
                     <div>
                         <div class="img-div">
                             <img src="IMG/index/jogos de matematica.png" alt="jogos de matemática">
@@ -246,8 +247,40 @@
                         </p>
                     </div>
                     <a href="HTML/cadastro.html"><button class="card-botao">Ver aulas</button></a>
-                </div>
+                </article>
             </div>
+        </div>
+    </section>
+
+    <section class="planos-index">
+        <h2>Veja os planos que oferecemos</h2>
+        <div class="container-plano">
+            <article class="card-planos">
+                <div>
+                    <h3>Para escolas</h3>
+                    <ul class="lista-p">
+                        <li class="item-p"><span class="feature-icon">✓</span><p>Capacidade para mais alunos usarem a mesma assinatura</p></li>
+                        <li class="item-p"><span class="feature-icon">✓</span><p>Professores podem publicar suas aulas de forma gratuita e com mias alcance</p></li>
+                        <li class="item-p"><span class="feature-icon">✓</span><p>Controle total sobre a forma que os alunos utilizam o site</p></li>
+                        <li class="item-p"><span class="feature-icon">✓</span><p>Acompanhamento do progresso dos alunos durante as aulas</p></li>
+                        <li class="item-p"><span class="feature-icon">✓</span><p>Aulas licensciadas para o uso educacional</p></li>
+                    </ul>
+                </div>
+                <a href="planos.html#escolas"><button class="botao-planos">solicitar para minha escola</button></a>
+            </article>
+            <article class="card-planos">
+                <div>
+                    <h3>Para familías</h3>
+                    <ul class="lista-p">
+                        <li class="item-p"><span class="feature-icon">✓</span><p>Estudo em grupo para melhor aprendizagem</p></li>
+                        <li class="item-p"><span class="feature-icon">✓</span><p>Responsáveis tem total acesso e controle sobre o que os filhos estudam</p></li>
+                        <li class="item-p"><span class="feature-icon">✓</span><p>Dinâmicas em familía liberada junto de jogos educacionais</p></li>
+                        <li class="item-p"><span class="feature-icon">✓</span><p>Aulas revisadas por pedagogos e especialistas das matérias</p></li>
+                        <li class="item-p"><span class="feature-icon">✓</span><p>Reuniões mensais com os professores para reajustar as aulas publicadas</p></li>
+                    </ul>
+                </div>
+                <a href="planos.html#familia"><button class="botao-planos">Assinar planos</button></a>
+            </article>
         </div>
     </section>
 
