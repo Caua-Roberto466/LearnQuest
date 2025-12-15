@@ -28,8 +28,17 @@
     <h1>Crie uma conta para você aprender da forma mais adaptada para seu estilo!</h1>
 
     <main>
-        <form action="salvar.php" method="post">
+        <form action="../PHP/salvar.php" method="post">
             <h3>Cadastro</h3>
+            <div class="inputs">
+                <label for="nome">Nome completo</label><br>
+                <input type="text" name="nome" id="nome" placeholder="Insira seu nome" required>
+            </div>
+
+            <div class="inputs">
+                <label for="email">Email</label><br>
+                <input type="email" name="email" id="email" placeholder="Insira seu email" required>
+            </div>
         </form>
     </main>
 
