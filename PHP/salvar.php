@@ -10,9 +10,9 @@ if(!$conexao){
     die("Erro de conexão: " . mysqli_connect_error());
 }
 
-$nome = $_POST['nome'];
-$email = $_POST['email'];
-$senha = $_POST['senha'];
+$nome = $_POST['nome'] ?? '';
+$email = $_POST['email'] ?? '';
+$senha = $_POST['senha'] ?? '';
 
 $senha_segura = password_hash($senha, PASSWORD_DEFAULT);
 
