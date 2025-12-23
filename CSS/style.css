@@ -67,7 +67,7 @@ header{
 .navbar ul{
     display: flex;
     justify-content: left;
-    gap: 7%;
+    gap: 5%;
     list-style: none;
     align-items: center;
     flex-wrap: nowrap;

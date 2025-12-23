@@ -1,3 +1,16 @@
+<?php 
+session_start();
+
+if(!isset($_SESSION['id_usuario'])){
+    echo "
+    <script>
+        alert('Para acessar essa página você deve estar logado')
+        window.location.href = '../HTML/entrar.html'
+    </script>
+    ";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,10 +18,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Cauã Roberto">
     <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/cadastro.css">
+    <link rel="stylesheet" href="../CSS/perfil.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <title>Entrar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">  
+    <title>Perfil</title>
 </head>
 <body>
     <header>
@@ -19,27 +32,14 @@
                 <li><a href="#" class="nav-link">Planos</a></li>
                 <li><a href="#" class="nav-link">Sobre nós</a></li>
                 <li><a href="#" class="nav-link">Contato</a></li>
-                <li><a href="../PHP/perfil.php" class="nav-link">Perfil</a></li>
-                <li><a href="entrar.html" class="nav-link">Entrar</a></li>
-                <li><a href="cadastro.html" class="nav-link">Cadastre-se</a></li>
+                <li><a href="perfil.php" class="nav-link">Perfil</a></li>
+                <li><a href="../HTML/entrar.html" class="nav-link">Entrar</a></li>
+                <li><a href="../HTML/cadastro.html" class="nav-link">Cadastre-se</a></li>
             </ul>
         </div>
     </header>
 
-    <main>
-        <form action="../PHP/login.php" method="post">
-            <h3>Entrar</h3>
-            <div class="inputs">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" placeholder="Digite seu email" required>
-            </div>
-            <div class="inputs">
-                <label for="senha">Senha</label>
-                <input type="password" name="senha" id="senha" placeholder="Digite sua senha" required>
-            </div>
-            <input type="submit" value="Entrar" id="submit">
-        </form>
-    </main>
+    <h1>Veja seu perfil <?php echo $_SESSION['nome_usuario']?></h1>
 
     <footer>
         <div class="coluna">

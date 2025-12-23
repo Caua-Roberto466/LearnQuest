@@ -36,7 +36,7 @@ if(mysqli_num_rows($resultado) == 1){
         $_SESSION['id_usuario'] = $usuario['id'];
         $_SESSION['nome_usuario'] = $usuario['nome'];
 
-        header("Location: dashboard.php");
+        header("Location: perfil.php");
         exit;
     }else{
         echo"
