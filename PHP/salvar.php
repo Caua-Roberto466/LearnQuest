@@ -11,8 +11,22 @@ if(!$conexao){
 }
 
 $nome = $_POST['nome'] ?? '';
-$email = $_POST['email'] ?? '';
+$email = trim($_POST['email']) ?? '';
 $senha = $_POST['senha'] ?? '';
+
+$sql_check = "SELECT id FROM usuarios_cadastrado WHERE email = '$email'";
+$result_check = mysqli_query($conexao, $sql_check);
+
+if (mysqli_num_rows($result_check) > 0) {
+    echo "
+    <script>
+        alert('Este email já está cadastrado');
+        window.location.href = '../HTML/cadastro.html';
+    </script>
+    ";
+    exit;
+}
+
 
 $senha_segura = password_hash($senha, PASSWORD_DEFAULT);
 
