@@ -17,7 +17,7 @@ if(!$conexao){
 }
 
 //Pega informações do formulário
-$email = $_POST['email'];
+$email = trim($_POST['email']);
 $senha = $_POST['senha'];
 
 //Pega o email do banco de dados
@@ -33,7 +33,7 @@ if(mysqli_num_rows($resultado) == 1){
     //Verifica se a senha está certa
     if(password_verify($senha, $usuario['senha'])){
         //Cria a sessão que fala que o usuário está logado
-        $_SESSION['id_usuaro'] = $usuario['id'];
+        $_SESSION['id_usuario'] = $usuario['id'];
         $_SESSION['nome_usuario'] = $usuario['nome'];
 
         header("Location: dashboard.php");
@@ -41,7 +41,7 @@ if(mysqli_num_rows($resultado) == 1){
     }else{
         echo"
         <script>
-            alert('Senha incorreta')
+            alert('Senha incorreta');
             window.location.href = '../HTML/entrar.html';
         </script>
         ";
@@ -49,9 +49,9 @@ if(mysqli_num_rows($resultado) == 1){
 }else{
     echo "
     <script>
-        alert('Usuário não registrado')
+        alert('Usuário não registrado');
         window.location.href = '../HTML/entrar.html';
-    <script>
+    </script>
     ";
 }
 mysqli_close($conexao);
