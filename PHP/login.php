@@ -40,13 +40,17 @@ if(mysqli_num_rows($resultado) == 1){
         exit;
     }else{
         echo"
-        <script>alert('Senha incorreta')</script>
+        <script>
+            alert('Senha incorreta')
+            window.location.href = '../HTML/entrar.html';
+        </script>
         ";
     }
 }else{
     echo "
     <script>
-    alert('Usuário não registrado')
+        alert('Usuário não registrado')
+        window.location.href = '../HTML/entrar.html';
     <script>
     ";
 }
