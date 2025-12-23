@@ -40,7 +40,7 @@ if(mysqli_num_rows($resultado) == 1){
         exit;
     }else{
         echo"
-        <scrpit>alert('Senha incorreta')</script>
+        <script>alert('Senha incorreta')</script>
         ";
     }
 }else{
