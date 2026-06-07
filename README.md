@@ -39,6 +39,7 @@
 <p>
   ✔️ HTML5 / CSS3 <br>
   ✔️ JavaScript <br>
+  ✔️ PHP <br>
   ✔️ Git & GitHub <br>
 </p>
 
